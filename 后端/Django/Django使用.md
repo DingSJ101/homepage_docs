@@ -8,8 +8,10 @@ django-admin startproject pro_name
 
 ```mysql
 # mysql建库及权限
-CREATE DATABASE `db_name` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ;
-grant reference,index on *.* to 'sqlpro'@'localhost';
+CREATE USER 'aicare'@'localhost' IDENTIFIED BY '123456';
+grant reference,index,select,insert,update on *.* to 'aicare'@'localhost';
+CREATE DATABASE `aicare` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ;
+
 ```
 
 ```python

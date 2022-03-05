@@ -1,3 +1,4 @@
+```python
 from sympy import *
 x = Symbol('x')#变量
 k = Symbol('k')
@@ -9,3 +10,9 @@ yinshifenjie= factor(y)	#因式分解
 jiangmi = collect(y)		#降幂排列
 yuefen = cancel(y)		#约分
 huajian  = simplify(y)		#化简
+```
+
+
+
+
+
