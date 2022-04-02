@@ -2,18 +2,21 @@
 
 ```bash
 sudo apt-get install nginx
-sudo iptables -I INPUT -p tcp --dport 80 -j ACCEPT #开放防火墙端口
+sudo iptables -I INPUT -p tcp --dport 8001 -j ACCEPT #开放防火墙端口
 wget https://projects.unbit.it/downloads/uwsgi-2.0.20.tar.gz
+
+## sudo iptables -I INPUT -p tcp --dport 22 -j ACCEPT #开放防火墙端口
+
 apt-get install python3-setuptools
 apt-get install python3-dev
 python3 setup.py install
 # no libpython3.9
-## wget -t 100 -c https://www.python.org/ftp/python/3.9.7/Python-3.9.7.tgz
-## cd Python-3.9.7/
-## ./configure --prefix=/tmp/Python
-## make -j4
-## make install
-#cp /tmp/Python/lib/libpython3.9.a ~/miniconda3/lib/python3.9/config-3.9-x86_64-linux-gnu/
+    ## wget -t 100 -c https://www.python.org/ftp/python/3.9.7/Python-3.9.7.tgz
+    ## cd Python-3.9.7/
+    ## ./configure --prefix=/tmp/Python
+    ## make -j4
+    ## make install
+    ## cp /tmp/Python/lib/libpython3.9.a ~/miniconda3/lib/python3.9/config-3.9-x86_64-linux-gnu/
 
 # 配置 nginx
 cd /etc/nginx/sites-available
@@ -32,6 +35,7 @@ vim default
        alias /home/dsj/workspace/ai-care/static;
     }
 ##
+sudo nginx -t
 sudo service nginx restart
 
 # 配置 uwsgi
@@ -67,9 +71,11 @@ invalid request block size: 21573 (max 4096)...skip
 # 配置的是socket访问，限定了数据包大小
 ```
 
+/var/log/nginx/error.log
 
+/var/log/nginx/web_error.log
 
-/var/log/nginx/web_error.log;
+/var/log/nginx/access.log
 
 
 
@@ -92,5 +98,5 @@ sudo netstat -anp | grep 端口号  # 显示 tcp，udp 的端口和进程等相�
 
 ```
 
-
+1..
 

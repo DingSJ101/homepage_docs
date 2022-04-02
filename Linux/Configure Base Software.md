@@ -25,9 +25,7 @@ sudo vi ~/.pip/pip.conf
 # 增加以下：
 [global]
 timeout = 6000
-index-url = http://pypi.douban.com/simple
-[install]
-trusted-host=pypi.douban.com
+index-url = https://pypi.tuna.tsinghua.edu.cn/simple/
 ```
 
 # Conda
@@ -39,6 +37,7 @@ sh Miniconda3-latest-Linux-x86_64.sh   ## 安装
 vim ~/.bashrc 
 ### 文末插入/修改
 	export  PATH="/home/dsj/miniconda3/bin:"$PATH
+	export  PATH="/root/miniconda3/bin:"$PATH
 ###
 source ~/.bashrc
 conda #测试
@@ -71,7 +70,39 @@ conda list #
 
 ```
 
+## apt
 
+```python
+## :set mouse -=a
+## apt-get update && apt-get install gnupg  ## for docker
+# /etc/apt/sources.list
+# 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse
+
+##  apt-get update
+### NO_PUBKEY 3B4FE6ACC0B21F32 NO_PUBKEY 871920D1991BC93C
+##  apt-key adv --keyserver keyserver.ubuntu.com --recv-keys  871920D1991BC93C
+```
+
+## git 
+
+```bash
+git config --global user.name "DingSJ101"
+git config --global user.email "1018966798@qq.com"
+git init 
+touch README.md
+git add README.md
+git commit -m "first commit"
+git remote add origin git@gitee.com:dsj_ws/course_select_system.git
+git push -u origin "master"
+```
 
 
 
@@ -84,6 +115,8 @@ sudo apt-get install openssh-server
 ps -e | grep ssh
 ## 启动sshserver
 sudo /etc/init.d/ssh start
+## 为了方便可以设置SSH服务开机自动启动，打开/etc/rc.local文件，在语句exit 0之前加入：
+#      /etc/init.d/ssh start
 ## 重启sshserver
 sudo /etc/init.d/ssh restart
 ## 停止
