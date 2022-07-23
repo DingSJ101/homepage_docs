@@ -1,3 +1,10 @@
+---
+abbrlink: b6814d96
+title: Django使用
+categories:
+  - 后端
+  - Django
+---
 ## 创建项目
 
 ```django

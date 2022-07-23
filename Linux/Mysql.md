@@ -1,3 +1,9 @@
+---
+abbrlink: 54e1373e
+title: Mysql
+categories:
+  - Linux
+---
 ## Mysql使用
 
 ## 安装(Windows)

@@ -1,3 +1,10 @@
+---
+abbrlink: a028ac0f
+title: math_python
+categories:
+  - Python
+  - my_packages
+---
 ```python
 from sympy import *
 x = Symbol('x')#变量

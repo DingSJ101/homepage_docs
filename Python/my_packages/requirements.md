@@ -1,3 +1,10 @@
+---
+abbrlink: 70bea1aa
+title: requirements
+categories:
+  - Python
+  - my_packages
+---
 ## 生成python的requiremets文件
 
 ```bash

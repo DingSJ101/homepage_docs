@@ -1,3 +1,9 @@
+---
+abbrlink: fe7a81da
+title: Chrome
+categories:
+  - Linux
+---
 # Chrome
 
 ```bash

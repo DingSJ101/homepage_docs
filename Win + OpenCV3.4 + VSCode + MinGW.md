@@ -1,3 +1,8 @@
+---
+abbrlink: 68fc39f5
+title: Win + OpenCV3
+categories: uncategorized
+---
 # Win + OpenCV3.4 + VSCode + MinGW 
 
 ## 一、安装MinGW

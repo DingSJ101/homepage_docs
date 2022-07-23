@@ -1,6 +1,6 @@
 ---
 categories:
-  - Markdown
+  - web
 tags:
   - latex
 abbrlink: ec04897e

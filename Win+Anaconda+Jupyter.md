@@ -1,3 +1,8 @@
+---
+abbrlink: a87bd88f
+title: Win+Anaconda+Jupyter
+categories: uncategorized
+---
 ## 卸载
 
 
@@ -9,7 +14,7 @@
 ### 镜像源
 
 ```bash
-conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+# conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
 conda config --set show_channel_urls yes
 ## ~/.condarc
 channels:

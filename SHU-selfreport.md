@@ -1,3 +1,8 @@
+---
+abbrlink: 95cadaf7
+title: SHU-selfreport
+categories: uncategorized
+---
 ## SHU-selfreport
 
 ```bash 

@@ -1,3 +1,9 @@
+---
+abbrlink: c3592b96
+title: Conda
+categories:
+  - Linux
+---
 ```bash
 ## 查看
 conda --version #查看conda版本，验证是否安装

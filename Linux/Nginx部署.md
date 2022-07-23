@@ -1,3 +1,9 @@
+---
+abbrlink: a1dff2a4
+title: Nginx部署
+categories:
+  - Linux
+---
 ## 基于域名配置
 
 ```nginx

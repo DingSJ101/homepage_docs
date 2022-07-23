@@ -1,3 +1,10 @@
+---
+abbrlink: '60e45118'
+title: Django部署
+categories:
+  - 后端
+  - Django
+---
 # nginx + uwsgi
 
 ```bash
