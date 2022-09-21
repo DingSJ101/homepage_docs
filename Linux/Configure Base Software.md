@@ -107,6 +107,8 @@ deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted 
 ##  apt-get update
 ### NO_PUBKEY 3B4FE6ACC0B21F32 NO_PUBKEY 871920D1991BC93C
 ##  apt-key adv --keyserver keyserver.ubuntu.com --recv-keys  871920D1991BC93C
+###   Certificate verification failed: The certificate is NOT trusted. The certificate chain uses expired certificate.  Could not handshake: Error in the certificate verification. [IP: 101.6.15.130 443]
+## 修改https 为 http
 ```
 
 ## git 

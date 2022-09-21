@@ -90,8 +90,10 @@ git submodule update https://gitee.com/dsj_ws/yilia-plus.git ./blog/theme/yilia-
         url = https://gitee.com/dsj_ws/yilia-plus.git
         
         
-        git clone --recursive https://gitee.com/dsj_ws/hexo_blog.git test
+git clone --recurse-submodules https://gitee.com/dsj_ws/hexo_blog.git test # clone主仓库的同时clone关联的submodule仓库
 ```
+
+![](https://s2.loli.net/2022/07/23/EzkrFocDXSOg1ML.png)
 
 ## .gitignore
 

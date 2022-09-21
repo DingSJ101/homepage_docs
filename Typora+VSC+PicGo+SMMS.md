@@ -48,6 +48,15 @@ categories: uncategorized
 
 ![](https://s2.loli.net/2022/06/19/9PvRHnJupaXqoVi.png)
 
+#### github
+
+![image-20220801195913093](C:\Users\dsj\AppData\Roaming\Typora\typora-user-images\image-20220801195913093.png)
+
+自定义域名修改为，加速访问
+
+- 第一种：https://raw.githubusercontent.com/[username]/[仓库名]/master
+- 第二种：https://cdn.jsdelivr.net/gh/[username]/[仓库]@master
+
 # Typora
 
 免费版，需安装1.0以前的beta版。
