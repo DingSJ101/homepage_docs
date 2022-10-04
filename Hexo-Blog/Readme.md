@@ -7,7 +7,7 @@ categories:
 # quick start 
 
 ```bash
-##########33 docker-compose.yml
+########## docker-compose.yml
 version: '3'
 services:
   # nginx:
@@ -62,4 +62,15 @@ docker-compose down
 echo "### Starting v ..."
 docker-compose -f docker-compose.yml  up --force-recreate --build -d
 ```
+
+# How to update posts
+
+```bash
+# prework : updated reposity docs on gitee
+docker restart hexo_nodejs
+```
+
+
+
+# How to add post
 
