@@ -31,7 +31,7 @@ conda create -n env_name python=x.x [ package_name ] #创建名为env_name的新
 source activate env_name #切换至env_name环境
 source deactivate #退出环境
 conda create --name new_env_name [ --clone old_env_name ] #复制环境
-conda remove --name env_name –all #删除环境
+conda remove --name env_name --all #删除环境
 
 ## 清理
 conda clean -p      #删除没有用的包

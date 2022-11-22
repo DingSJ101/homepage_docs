@@ -53,7 +53,7 @@ date: 2022-06-19 19:30:29
 
 # 四、分割线
 
-```
+```latex
 //三个或者三个以上的 - 或者 * 
 ---
 *****
@@ -66,7 +66,7 @@ date: 2022-06-19 19:30:29
 
 # 五、图片
 
-```
+```latex
 ![图片alt](图片地址 ''图片title'')
 //图片alt就是显示在图片下面的文字，相当于对图片内容的解释。
 //图片title是图片的标题，当鼠标移到图片上时显示的内容。title可加可不加
@@ -236,11 +236,11 @@ HTML，
 - [ ] txt1
 - [x] txt2
 
-# 十三、注释
+# 十三、引用
 
 ```markdown
 text1 [^1] text2
-[^1]:注释文字
+[^1]:引用文字
 ```
 
 text1 [^1] text2
@@ -257,4 +257,111 @@ text1 [^1] text2
 ## <span id = "index" > 目录 </span>
 
 [返回](#index)
+
+# 十五、公式字体
+
+$$
+\begin {array}{}
+文本效果 & 代码 \\
+\Huge text & \backslash Huge\space text\\
+\huge text & \backslash huge\space text\\
+\LARGE text & \backslash LARGE\space text\\
+\Large text & \backslash Large\space text\\
+\large text & \backslash large\space text\\
+\normalsize text & \backslash normalsize\space text\\
+text & text(default) \\
+\small text & \backslash small\space text\\
+\footnotesize text & \backslash footnotesize\space text\\
+\scritpsize text & \backslash scritpsize\space text\\
+\tiny text & \backslash tiny\space text\\
+
+\end {array}
+$$
+
+# 多行公式
+
+基础语法同矩阵，矩阵类型可替换为以下不同样式
+
+## multiline 
+
+$$
+\begin{multline}
+x = a + b \\
+y = c + d + e \\
+z = f + g
+\end{multline}
+$$
+
+## split
+
+$$
+\begin{split}
+x = a + b \\
+y = c + d + e \\
+z = f + g
+\end{split}
+$$
+
+## gather
+
+$$
+\begin{gather}
+x = a + b \\
+y = c + d + e \\
+z = f + g
+\end{gather}
+$$
+
+## align
+
+$$
+\begin{align}
+x = a + b \\
+y = c + d + e \\
+z = f + g
+\end{align}
+$$
+
+## cases
+
+$$
+\begin{cases}
+x = a + b \\
+y = c + d + e \\
+z = f + g
+\end{cases}
+$$
+
+## equation
+
+$$
+\begin{equation}
+x = a + b \\
+y = c + d + e \\
+z = f + g
+\end{equation}
+$$
+
+
+
+## 公式的编号和引用
+
+使用`\label{anchor_name}\tag{number}`可以显示编号(number)，并定义为anchor_name的锚点，之后可以通过`eqref{anchor_name}`引用公式的编号。对于不需要编号的行，可以添加`\nonumber`或`\notag`标记。
+
+```latex
+$
+x = f (x) \label{myeq} \tag{1.a}
+$
+引用 $\eqref{1.a}$
+```
+
+$
+x = f (x) \label{myeq} \tag{1.a}
+$
+
+引用$\eqref{1.a}$
+
+
+
+
 

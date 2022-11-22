@@ -94,6 +94,9 @@ docker push new-repo:tagname
 ### 提取文件打包
 tar  --exclude=/proc --exclude=/sys --exclude=/base_img.tgz  -cvpzf /base_img.tgz  /
 docker cp jupyter:/base_img.tgz .
+# docker cp mycontainer:/opt/file.txt /opt/  # 容器到宿主机
+# docker cp /opt/test/file.txt mycontainer:/opt/testnew/  # 宿主机到容器
+# docker cp 在容器未启动时也会生效
 cat base_img.tgz | docker import - ubuntu
 ### 
 

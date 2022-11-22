@@ -47,6 +47,7 @@ mysql -uroot -p
 ```bash
 docker pull mysql:latest
 docker run -itd --name mysql -p 3306:3306 -v ~/mysqldata:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 mysql
+docker run -itd --name mysql_test -p 33066:3306 -v ~/mysql_test:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=kje99sss mysql
 #进入容器
 docker exec -it mysql bash
 #登录mysql
@@ -55,6 +56,8 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY '123456'; # 修改密码
 #添加远程登录用户
 CREATE USER 'remote'@'%' IDENTIFIED WITH mysql_native_password BY 'qwe123';
 GRANT ALL PRIVILEGES ON *.* TO 'remote'@'%';
+
+
 ```
 
 

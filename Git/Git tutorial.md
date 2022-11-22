@@ -191,3 +191,35 @@ git commit -m 'update .gitignore'
 
 
 
+# 撤销
+
+## git add 前
+
+`git checkout <filename>`或`git restore <filename>` 撤销硬盘上的修改
+
+## git add 后,git commit 前
+
+`git add `之后，文件将拷贝至暂存区。
+
+`git reset <filename>`或`git restore --staged <filename>` 撤销暂存区修改
+
+`git checkout HEAD <filename>`同时撤销暂存区和硬盘上的修改
+
+## git commit 后
+
+`git commit `后，修改将同步到`local git`中
+
+`git reset --soft HEAD~1`撤销commit 
+
+`git reset HEAD~1`或`git reset --mixed HEAD~1`同时撤销`git commit `和`git add`
+
+`git reset --hard HEAD~1`同时撤销`git commit `和`git add`以及硬盘上的所有修改，恢复到上一个commit状态
+
+`git revert HEAD`增加一个commit ，效果等价于撤销某个commit
+
+> `git revert <hash> ` 撤销hash对应的commit内容，可以单独撤销之前的任一个commit
+>
+> e.g. `git revert HEAD~n`
+>
+> 优点：撤销分支是通过增加commit链，在公共分支上便于git pull ; 其他方法是通过裁断commit链，提交时需要参数`-f`
+

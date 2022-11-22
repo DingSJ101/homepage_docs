@@ -50,7 +50,16 @@ wsl --install -d Ubuntu
 
 子系统的数据将存储在此文件夹中。![](https://s2.loli.net/2022/06/29/S28btrX5MfymGBn.png)
 
+### 修改docker磁盘挂载位置
 
+WSL2中docker-desktop-data通常位于`C:\Users\dsj\AppData\Local\Docker\wsl\data\ext4.vhdx`
+
+![image-20221105105118291](https://raw.githubusercontent.com/DingSJ101/picgo_hub/main/img/20221105105121.png)
+
+- 停止WSL `wsl --shutdown`
+- 备份docker-desktop-data ` wsl --export docker-desktop-data "D:\\docker-desktop-data.tar"`
+- 注销docker-desktop-data `wsl --unregister docker-desktop-data`
+- 导入备份`wsl --import docker-desktop-data "D:\\wsl-docker-data" "D:\\docker-desktop-data.tar" --version 2`
 
 ## CentOS
 

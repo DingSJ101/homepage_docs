@@ -66,7 +66,23 @@ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/
 conda config --set show_channel_urls yes 
 conda config --get channels
-
+## vi ~/.condarc
+channels:
+  - defaults
+show_channel_urls: true
+default_channels:
+  - http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+  - http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r
+  - http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2
+custom_channels:
+  conda-forge: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  msys2: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  bioconda: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  menpo: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  pytorch: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  pytorch-lts: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  simpleitk: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+ ## 
 创建虚拟环境，并安装python
 	conda create -n py3 python=3.8
 激活虚拟环境
