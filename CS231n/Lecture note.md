@@ -169,3 +169,13 @@ Krizhevsky et al. 2012
 
 ### ResNet
 
+## Lecture Ten
+
+## Lecture Eleven
+
+## Lecture Twelve 
+
+## Lecture Thirteen
+
+
+

@@ -28,6 +28,7 @@ cd ~/.pip
 touch pip.conf
 # 编辑pip.conf文件
 sudo vi ~/.pip/pip.conf
+
 # 增加以下：
 [global]
 timeout = 6000
@@ -109,7 +110,9 @@ conda list #
 ```python
 ## :set mouse -=a
 ## apt-get update && apt-get install gnupg  ## for docker
+sudo vi /etc/apt/sources.list
 # /etc/apt/sources.list
+
 # 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
 deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse
 # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse
@@ -120,7 +123,7 @@ deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted
 deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse
 # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse
 
-##  apt-get update
+apt-get update
 ### NO_PUBKEY 3B4FE6ACC0B21F32 NO_PUBKEY 871920D1991BC93C
 ##  apt-key adv --keyserver keyserver.ubuntu.com --recv-keys  871920D1991BC93C
 ###   Certificate verification failed: The certificate is NOT trusted. The certificate chain uses expired certificate.  Could not handshake: Error in the certificate verification. [IP: 101.6.15.130 443]

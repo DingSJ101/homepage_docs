@@ -82,8 +82,6 @@ systemctl enable docker	# 开机自启
 systemctl stop docker
 systemctl restart docker
 systemctl status docker
-
-
 ```
 
 
@@ -96,16 +94,14 @@ sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent softwa
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -  # 添加官方密钥
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" #设置稳定版仓库
 sudo apt-get update
-apt-cache madison docker-ce # 查看适合的包
+# 查看适合的包
+apt-cache madison docker-ce 
 apt-cache madison docker-ce-cli
-sudo apt-get install docker-ce=5:20.10.9~3-0~ubuntu-focal docker-ce-cli=5:20.10.9~3-0~ubuntu-focal containerd.io  #选一个较低的版本安装
+ #选一个较低的版本安装,ubuntu20.04为focal ,ubuntu22.04为jammy
+sudo apt-get install containerd.io  docker-ce=5:20.10.9~3-0~ubuntu-focal docker-ce-cli=5:20.10.9~3-0~ubuntu-focal 
 sudo service docker start
 sudo service docker status
 sudo docker run hello-world
-
-sudo groupadd docker
-sudo gpasswd -a ${USER} docker
-su dsj
 ```
 
 ## 提权
@@ -115,6 +111,7 @@ sudo groupadd docker
 sudo gpasswd -a ${USER} docker
 sudo service docker restart
 newgrp - docker
+docker run hello-world
 ```
 
 ## Docker  Compose
