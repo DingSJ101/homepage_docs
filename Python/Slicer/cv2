@@ -1,0 +1,36 @@
+
+
+![image-20230530133717990](https://raw.githubusercontent.com/DingSJ101/picgo_hub/main/img/20230530133719.png)
+
+1
+
+```python 
+# PYTHONPATH
+import slicer.util as util
+# site-packages
+import numpy as np
+import cv2
+import pyqtgraph as pg
+import pyqtgraph.opengl as gl
+import open3d as o3d
+from PyQt5 import QtCore, QtGui, Qt
+from easydict import EasyDict
+from sympy import symbols, solve
+from scipy.spatial.transform import Rotation as R
+
+```
+
+> bash
+
+```bash
+pip install numpy 
+pip install opencv-python
+pip install pyqtgraph  pyOpenGL
+pip install open3d
+pip install PyQt5
+pip install easydict
+pip install sympy
+pip install scipy
+
+```
+

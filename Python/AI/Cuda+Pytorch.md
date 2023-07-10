@@ -1,3 +1,23 @@
+# 安装驱动
+
+```bash
+lspci | grep NVIDIA # 查看型号
+```
+
+[下载驱动](https://www.nvidia.com/Download/index.aspx)
+
+## 禁用 nouveau 
+
+```bash
+lsmod | grep nouveau 
+sudo vim /etc/modprobe.d/blacklist.conf
+# 插入
+blacklist nouveau
+# 重启，进入BIOS，关闭Secure boot 
+```
+
+
+
 # Cuda
 
 **## 确定版本**
@@ -40,32 +60,92 @@ export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/cuda-11.6/lib64
 nvcc -V
 ```
 
-## Docker 无法使用GPU解决办法
 
-安装`nvidia-container-toolkit`将宿主机的GPU运行时映射到容器。[参考](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#installing-on-ubuntu-and-debian)
+## ubuntu+cuda+driver
 
-> 注：如果使用Kubernetes，还需要安装nvidia-docker2
+禁用nouveau
 
-```bash
-# https://nvidia.github.io/libnvidia-container/
-distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
-curl -s -L https://nvidia.github.io/libnvidia-container/$distribution/libnvidia-container.list |  sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' |  sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
-```
+`sudo vim /etc/modprobe.d/blacklist.conf`
 
-更新apt
+添加
 
 ```bash
-sudo apt-get update
-# sudo apt-get install -y nvidia-docker2
-sudo apt-get install -y nvidia-container-toolkit
-sudo systemctl restart docker
+blacklist nouveau
+options nouveau modeset=0
 ```
 
-测试，docker运行容器时附上参数：--gpus all 
+`sudo update-initramfs -u #刷新内核`
 
-```bash
-docker run --rm --gpus all nvidia/cuda:11.6.2-base-ubuntu20.04 nvidia-smi
+重启。
+
+安装cuda，选择附带安装driver
+
+需要安装gcc,make等等一系列东西
+
+如果报错 ：You do not appear to have libc header files installed on your system.
+Please install your distribution’s libc development [package](https://so.csdn.net/so/search?q=package&spm=1001.2101.3001.7020).
+
+执行`sudo apt install `
+
+出现依赖问题，直接恢复默认源
+
+ubuntu2204 source.list
+
 ```
+#deb cdrom:[Ubuntu 22.04 LTS _Jammy Jellyfish_ - Release amd64 (20220419)]/ jammy main restricted # See http://help.ubuntu.com/community/UpgradeNotes for how to upgrade to # newer versions of the distribution. deb http://cn.archive.ubuntu.com/ubuntu/ jammy main restricted # deb-src http://cn.archive.ubuntu.com/ubuntu/ jammy main restricted ## Major bug fix updates produced after the final release of the ## distribution. deb http://cn.archive.ubuntu.com/ubuntu/ jammy-updates main restricted # deb-src http://cn.archive.ubuntu.com/ubuntu/ jammy-updates main restricted ## N.B. software from this repository is ENTIRELY UNSUPPORTED by the Ubuntu ## team. Also, please note that software in universe WILL NOT receive any ## review or updates from the Ubuntu security team. deb http://cn.archive.ubuntu.com/ubuntu/ jammy universe # deb-src http://cn.archive.ubuntu.com/ubuntu/ jammy universe deb http://cn.archive.ubuntu.com/ubuntu/ jammy-updates universe # deb-src http://cn.archive.ubuntu.com/ubuntu/ jammy-updates universe ## N.B. software from this repository is ENTIRELY UNSUPPORTED by the Ubuntu ## team, and may not be under a free licence. Please satisfy yourself as to ## your rights to use the software. Also, please note that software in ## multiverse WILL NOT receive any review or updates from the Ubuntu ## security team. deb http://cn.archive.ubuntu.com/ubuntu/ jammy multiverse # deb-src http://cn.archive.ubuntu.com/ubuntu/ jammy multiverse deb http://cn.archive.ubuntu.com/ubuntu/ jammy-updates multiverse # deb-src http://cn.archive.ubuntu.com/ubuntu/ jammy-updates multiverse ## N.B. software from this repository may not have been tested as ## extensively as that contained in the main release, although it includes ## newer versions of some applications which may provide useful features. ## Also, please note that software in backports WILL NOT receive any review ## or updates from the Ubuntu security team. deb http://cn.archive.ubuntu.com/ubuntu/ jammy-backports main restricted universe multiverse # deb-src http://cn.archive.ubuntu.com/ubuntu/ jammy-backports main restricted universe multiverse deb http://security.ubuntu.com/ubuntu jammy-security main restricted # deb-src http://security.ubuntu.com/ubuntu jammy-security main restricted deb http://security.ubuntu.com/ubuntu jammy-security universe # deb-src http://security.ubuntu.com/ubuntu jammy-security universe deb http://security.ubuntu.com/ubuntu jammy-security multiverse # deb-src http://security.ubuntu.com/ubuntu jammy-security multiverse # This system was installed using small removable media # (e.g. netinst, live or single CD). The matching "deb cdrom" # entries were disabled at the end of the installation process. # For information about how to configure apt package sources, # see the sources.list(5) manual.
+
+# See http://help.ubuntu.com/community/UpgradeNotes for how to upgrade to 
+# newer versions of the distribution. 
+deb http://cn.archive.ubuntu.com/ubuntu/ jammy main restricted 
+# deb-src http://cn.archive.ubuntu.com/ubuntu/ jammy main restricted
+
+## Major bug fix updates produced after the final release of the 
+## distribution. 
+deb http://cn.archive.ubuntu.com/ubuntu/ jammy-updates main restricted 
+# deb-src http://cn.archive.ubuntu.com/ubuntu/ jammy-updates main restricted
+
+## N.B. software from this repository is ENTIRELY UNSUPPORTED by the Ubuntu 
+## team. Also, please note that software in universe WILL NOT receive any 
+## review or updates from the Ubuntu security team. 
+deb http://cn.archive.ubuntu.com/ubuntu/ jammy universe 
+# deb-src http://cn.archive.ubuntu.com/ubuntu/ jammy universe 
+deb http://cn.archive.ubuntu.com/ubuntu/ jammy-updates universe 
+# deb-src http://cn.archive.ubuntu.com/ubuntu/ jammy-updates universe
+
+## N.B. software from this repository is ENTIRELY UNSUPPORTED by the Ubuntu 
+## team, and may not be under a free licence. Please satisfy yourself as to 
+## your rights to use the software. Also, please note that software in 
+## multiverse WILL NOT receive any review or updates from the Ubuntu 
+## security team. 
+deb http://cn.archive.ubuntu.com/ubuntu/ jammy multiverse 
+# deb-src http://cn.archive.ubuntu.com/ubuntu/ jammy multiverse 
+deb http://cn.archive.ubuntu.com/ubuntu/ jammy-updates multiverse 
+# deb-src http://cn.archive.ubuntu.com/ubuntu/ jammy-updates multiverse
+
+## N.B. software from this repository may not have been tested as 
+## extensively as that contained in the main release, although it includes 
+## newer versions of some applications which may provide useful features. 
+## Also, please note that software in backports WILL NOT receive any review 
+## or updates from the Ubuntu security team. 
+deb http://cn.archive.ubuntu.com/ubuntu/ jammy-backports main restricted universe multiverse 
+# deb-src http://cn.archive.ubuntu.com/ubuntu/ jammy-backports main restricted universe multiverse
+
+deb http://security.ubuntu.com/ubuntu jammy-security main restricted 
+# deb-src http://security.ubuntu.com/ubuntu jammy-security main restricted 
+deb http://security.ubuntu.com/ubuntu jammy-security universe 
+# deb-src http://security.ubuntu.com/ubuntu jammy-security universe 
+deb http://security.ubuntu.com/ubuntu jammy-security multiverse 
+# deb-src http://security.ubuntu.com/ubuntu jammy-security multiverse
+
+# This system was installed using small removable media 
+# (e.g. netinst, live or single CD). The matching "deb cdrom" 
+# entries were disabled at the end of the installation process. 
+# For information about how to configure apt package sources, 
+# see the sources.list(5) manual.
+
+```
+
+
 
 
 

@@ -120,6 +120,10 @@ FROM image1 as pre_image
 # ..
 FROM image2
 COPY --from=pre_image /image1_folder /image2_folder
+
+
+## 其他参数
+--shm-size 8G # 容器内共享内存大小
 ```
 
 ## Docker Compose

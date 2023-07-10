@@ -20,7 +20,12 @@
    cd ~/.ssh 
    ssh-keygen -t rsa 
    # 在默认目录下创建 id_rsa 和 id_rsa.pub 文件
-   # 可以使用 -f filename  指定生成的两个文件的文件名
+   # 可以使用 -f filename  指定生成的两个文件的文件名,注意此时需要将文件名加入到.ssh/config文件中，登陆时将使用filename和filename.pub进行验证
+   ## 如下：
+   ## Host 192.168.1.1
+   ##  HostName 192.168.1.1
+   ##  User dsj
+   ##  IdentityFile .ssh/filename
    ```
 
 2. 发送密钥

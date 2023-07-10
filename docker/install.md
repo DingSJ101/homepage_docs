@@ -90,7 +90,7 @@ systemctl status docker
 
 ```bash
 sudo apt-get update
-sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common  # 依赖
+sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y  # 依赖
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -  # 添加官方密钥
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" #设置稳定版仓库
 sudo apt-get update
@@ -98,7 +98,8 @@ sudo apt-get update
 apt-cache madison docker-ce 
 apt-cache madison docker-ce-cli
  #选一个较低的版本安装,ubuntu20.04为focal ,ubuntu22.04为jammy
-sudo apt-get install containerd.io  docker-ce=5:20.10.9~3-0~ubuntu-focal docker-ce-cli=5:20.10.9~3-0~ubuntu-focal 
+sudo apt-get install containerd.io  docker-ce=5:20.10.9~3-0~ubuntu-focal docker-ce-cli=5:20.10.9~3-0~ubuntu-focal -y
+# sudo apt-get install containerd.io  docker-ce=5:20.10.23~3-0~ubuntu-jammy docker-ce-cli=5:20.10.23~3-0~ubuntu-jammy 
 sudo service docker start
 sudo service docker status
 sudo docker run hello-world
@@ -110,9 +111,25 @@ sudo docker run hello-world
 sudo groupadd docker
 sudo gpasswd -a ${USER} docker
 sudo service docker restart
-newgrp - docker
-docker run hello-world
+newgrp docker     #更新用户组
+
+    docker run hello-world
 ```
+
+### 修改镜像
+
+修改`/etc/docker/daemon.json`
+
+写入
+
+```
+{ "registry-mirrors": [  "https://registry.cn-hangzhou.aliyuncs.com", "http://hub-mirror.c.163.com", "https://docker.mirrors.ustc.edu.cn", "https://registry.docker-cn.com" ] }
+
+```
+
+重启docker，`sudo service docker restart `
+
+
 
 ## Docker  Compose
 
@@ -124,3 +141,41 @@ sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 # way two
 ```
 
+## Docker 无法使用GPU解决办法
+
+安装`nvidia-container-toolkit`将宿主机的GPU运行时映射到容器。[参考](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#installing-on-ubuntu-and-debian)
+
+> 注：如果使用Kubernetes，还需要安装nvidia-docker2
+
+```bash
+# https://nvidia.github.io/libnvidia-container
+distribution=$(. /etc/os-release;echo $ID$VERSION_ID) \
+      && curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
+      && curl -s -L https://nvidia.github.io/libnvidia-container/$distribution/libnvidia-container.list | \
+            sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
+            sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
+```
+
+更新apt
+
+```bash
+sudo apt-get update
+# sudo apt-get install -y nvidia-docker2
+sudo apt-get install -y nvidia-container-toolkit
+sudo systemctl restart docker
+```
+
+测试，docker运行容器时附上参数：--gpus all 
+
+```bash
+docker run --rm --gpus all nvidia/cuda:11.6.2-base-ubuntu20.04 nvidia-smi
+
+--device /dev/nvidia0:/dev/nvidia0   
+--device /dev/nvidia1:/dev/nvidia1   
+
+--device /dev/nvidia-modeset:/dev/nvidia-modeset 
+--device /dev/nvidia-uvm:/dev/nvidia-uvm 
+--device /dev/nvidia-uvm-tools:/dev/nvidia-uvm-tools 
+--device /dev/nvidiactl:/dev/nvinvidiactl 
+--gpus all  
+```

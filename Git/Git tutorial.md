@@ -77,8 +77,6 @@ git config --show-origin user
 
 
 
-
-
 # 拉取/提交代码
 
 ```bash
@@ -104,6 +102,17 @@ git push origin master
 回退到`git pull`之前，重新拉取远程仓库的master分支，此时仓库
 
 ![](https://raw.githubusercontent.com/DingSJ101/picgo_hub/main/img/20220801151539.png)
+
+## git commit
+
+````bash
+git add -A # 添加所有修改
+git commit -m "commit info" #
+````
+
+
+
+
 
 # 切换分支
 

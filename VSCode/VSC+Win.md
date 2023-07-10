@@ -9,6 +9,26 @@ categories: uncategorized
 
 ## Remote-SSH
 
+远程显示gui窗口
+
+使用id_rsa密钥配置远程免密登录
+
+本地安装VcXsrv软件，一直下一步完成安装并启动
+
+修改安装目录下X0.hosts文件，插入服务器IP
+
+VSCode安装Remote-X11（SSH）插件，修改ssh配置
+
+![image-20230213093241034](../picture/image-20230213093241034.png)
+
+远程连接服务器，服务器中安装Remote X11 插件
+
+测试：
+
+服务器命令行输入xclock，等待一会本地会出现![image-20230213174317374](../picture/image-20230213174317374.png)
+
+使用Ctrl+Shift+U查看日志，如下即为配置成功。![image-20230213174350472](../picture/image-20230213174350472.png)
+
 ## git history
 
 ## git graph
