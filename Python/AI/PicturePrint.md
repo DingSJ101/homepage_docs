@@ -1,3 +1,7 @@
+---
+date: 2023-05-11 16:23:34.276471
+lastmod: 2023-05-25 19:19:44.131166
+---
 ## plt.imshow()
 
 接受`H*W*C`的`numpy.ndarray 或torch.Tensor` ,像素取值在0~1

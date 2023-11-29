@@ -1,8 +1,7 @@
 ---
-abbrlink: 54e1373e
+date: 2022-07-23 13:51:28.151814
+lastmod: 2022-10-07 15:47:05.208083
 title: Mysql
-categories:
-  - Linux
 ---
 ## # install
 

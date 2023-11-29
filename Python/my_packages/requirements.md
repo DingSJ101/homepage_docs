@@ -1,9 +1,6 @@
 ---
-abbrlink: 70bea1aa
+date: 2022-07-23 13:51:28.160508
 title: requirements
-categories:
-  - Python
-  - my_packages
 ---
 ## 生成python的requiremets文件
 

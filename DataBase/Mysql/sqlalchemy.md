@@ -1,3 +1,6 @@
+---
+date: 2022-10-03 21:48:30.042293
+---
 # base
 
 SQLAlchemy是 Python 著名的 ORM 工具包。通过 ORM，开发者可以用面向对象的方式来操作数据库，不再需要编写 SQL 语句。本篇不解释为什么要使用 ORM，主要讲解 SQLAlchemy 的用法。SQLAlchemy 支持多种数据库，除 sqlite 外，其它数据库需要安装第三方驱动。

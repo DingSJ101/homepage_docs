@@ -1,8 +1,7 @@
 ---
-abbrlink: 809983c5
+date: 2022-07-23 13:52:53.913384
+lastmod: 2023-02-18 18:00:40.280960
 title: Readme
-categories:
-  - Hexo-Blog
 ---
 ## quick start
 

@@ -1,8 +1,6 @@
 ---
-abbrlink: 1473feae
+date: 2023-11-29 16:36:19.387370
 title: Configure Base Software
-categories:
-  - Linux
 ---
 # Soucre
 

@@ -1,7 +1,6 @@
 ---
-abbrlink: a477be03
+date: 2022-07-23 13:52:53.825796
 title: nginx
-categories: uncategorized
 ---
 ## install
 

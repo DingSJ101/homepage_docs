@@ -1,8 +1,6 @@
 ---
-abbrlink: fe7a81da
+date: 2022-07-23 13:51:28.151814
 title: Chrome
-categories:
-  - Linux
 ---
 # Chrome
 

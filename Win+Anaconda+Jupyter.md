@@ -1,7 +1,6 @@
 ---
-abbrlink: a87bd88f
+date: 2022-07-23 13:51:28.162116
 title: Win+Anaconda+Jupyter
-categories: uncategorized
 ---
 ## 卸载
 

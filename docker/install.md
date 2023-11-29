@@ -1,8 +1,7 @@
 ---
-abbrlink: 2fcabd79
+date: 2022-07-23 13:52:53.901784
+lastmod: 2023-02-25 22:09:34.984294
 title: install
-categories:
-  - docker
 ---
 ## Docker
 

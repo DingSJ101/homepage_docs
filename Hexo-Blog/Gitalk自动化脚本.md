@@ -1,3 +1,6 @@
+---
+date: 2022-07-23 22:28:11.009715
+---
 ## 注册Github OAuth App
 
 Setting - Developer settings - personal access token - New personal access token

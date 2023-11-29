@@ -1,11 +1,8 @@
 ---
-categories:
-  - web
-tags:
-  - latex
-abbrlink: ec04897e
-title: '[base]'
 date: 2022-06-19 19:30:29
+tags:
+- latex
+title: '[base]'
 ---
 
 # 一、标题

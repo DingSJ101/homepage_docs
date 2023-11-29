@@ -1,24 +1,12 @@
-# 安装驱动
-
-```bash
-lspci | grep NVIDIA # 查看型号
-```
-
-[下载驱动](https://www.nvidia.com/Download/index.aspx)
-
-## 禁用 nouveau 
-
-```bash
-lsmod | grep nouveau 
-sudo vim /etc/modprobe.d/blacklist.conf
-# 插入
-blacklist nouveau
-# 重启，进入BIOS，关闭Secure boot 
-```
+---
+date: 2022-11-04 21:16:51.678223
+lastmod: 2023-10-16 20:04:16.928334
+---
 
 
 
-# Cuda
+
+# WSL+Cuda
 
 **## 确定版本**
 
@@ -60,25 +48,40 @@ export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/cuda-11.6/lib64
 nvcc -V
 ```
 
-
-## ubuntu+cuda+driver
-
-禁用nouveau
-
-`sudo vim /etc/modprobe.d/blacklist.conf`
-
-添加
+#  ubuntu+cuda+driver
 
 ```bash
+sudo vi /etc/modprobe.d/blacklist.conf #禁用nouveau
+## 添加
 blacklist nouveau
 options nouveau modeset=0
+##
+sudo update-initramfs -u #刷新内核
+
+sudo reboot 
+lsmod | grep nouveau 
 ```
 
-`sudo update-initramfs -u #刷新内核`
+## 安装驱动
 
-重启。
+1. `.run`
 
-安装cuda，选择附带安装driver
+```bash
+lspci | grep NVIDIA # 查看型号
+```
+
+[下载驱动](https://www.nvidia.com/Download/index.aspx)
+
+2. `ppa方式`
+
+```bash
+sudo add-apt-repository ppa:graphics-drivers/ppa
+sudo apt-get update
+ubuntu-drivers devices
+sudo apt-get install nvidia-driver-xxx
+```
+
+## 安装cuda，见上文
 
 需要安装gcc,make等等一系列东西
 

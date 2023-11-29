@@ -1,11 +1,9 @@
 ---
-categories:
-  - Markdown
-tags:
-  - latex
-abbrlink: ec04897e
-title: '[base]'
 date: 2022-06-19 19:30:29
+lastmod: 2023-03-12 16:29:58.647909
+tags:
+- latex
+title: '[base]'
 ---
 
 # 一、标题

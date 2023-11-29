@@ -1,11 +1,12 @@
 ---
-categories:
-  - Hexo-Blog
-abbrlink: e07784e5
+date: 2022-07-23 13:52:53.903195
+lastmod: 2023-11-28 19:00:21.646059
 title: Install
 ---
 ```bash
-
+## local host 
+npm install hexo-cli -g 
+## docker 
 docker pull taskbjorn/hexo
 docker volume create my_hexo_data
 docker run -it --name my_hexo_container -p 4000:4000 -v hexo_data:/home/hexo/.hexo taskbjorn/hexo

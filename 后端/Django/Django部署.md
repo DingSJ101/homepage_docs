@@ -1,9 +1,6 @@
 ---
-abbrlink: '60e45118'
+date: 2022-07-23 13:51:28.162116
 title: Django部署
-categories:
-  - 后端
-  - Django
 ---
 # nginx + uwsgi
 

@@ -1,9 +1,6 @@
 ---
-abbrlink: 9bb5c0a7
+date: 2022-07-23 13:51:28.151814
 title: packages
-categories:
-  - Python
-  - Scientifical Calc
 ---
 
 

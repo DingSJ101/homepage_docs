@@ -1,7 +1,6 @@
 ---
-abbrlink: 68fc39f5
+date: 2022-07-23 13:51:28.162116
 title: Win + OpenCV3
-categories: uncategorized
 ---
 # Win + OpenCV3.4 + VSCode + MinGW 
 

@@ -1,3 +1,6 @@
+---
+date: 2022-10-14 16:21:31.009465
+---
 ## homepage of CS231n
 
 [link](http://cs231n.stanford.edu/2017/syllabus.html)

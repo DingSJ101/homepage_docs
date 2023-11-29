@@ -1,8 +1,6 @@
 ---
-abbrlink: 6f0cf84e
+date: 2022-07-23 13:52:53.893786
 title: docker deploy
-categories:
-  - docker
 ---
 ## opengauss
 

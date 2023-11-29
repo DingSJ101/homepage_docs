@@ -1,7 +1,7 @@
 ---
-abbrlink: 95cadaf7
+date: 2022-07-23 13:51:28.160508
+lastmod: 2023-02-11 16:17:11.033708
 title: SHU-selfreport
-categories: uncategorized
 ---
 ## SHU-selfreport
 

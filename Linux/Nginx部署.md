@@ -1,8 +1,6 @@
 ---
-abbrlink: a1dff2a4
+date: 2022-07-23 13:51:28.151814
 title: Nginx部署
-categories:
-  - Linux
 ---
 ## 基于域名配置
 

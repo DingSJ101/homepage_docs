@@ -1,9 +1,6 @@
 ---
-abbrlink: b6814d96
+date: 2022-07-23 13:51:28.162116
 title: Django使用
-categories:
-  - 后端
-  - Django
 ---
 ## 创建项目
 

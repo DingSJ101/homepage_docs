@@ -1,8 +1,7 @@
 ---
-abbrlink: c3592b96
+date: 2022-07-23 13:51:28.151814
+lastmod: 2022-10-04 21:10:20.885033
 title: Conda
-categories:
-  - Linux
 ---
 ```bash
 ## 查看

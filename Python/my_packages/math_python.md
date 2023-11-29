@@ -1,9 +1,6 @@
 ---
-abbrlink: a028ac0f
+date: 2022-07-23 13:51:28.159760
 title: math_python
-categories:
-  - Python
-  - my_packages
 ---
 ```python
 from sympy import *

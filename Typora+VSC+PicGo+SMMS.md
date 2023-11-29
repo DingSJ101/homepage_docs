@@ -1,7 +1,7 @@
 ---
-abbrlink: 8545f871
+date: 2022-07-23 13:52:53.848145
+lastmod: 2022-08-01 20:00:00.868208
 title: Typora+VSC+PicGo+SMMS
-categories: uncategorized
 ---
 # PicGo
 

@@ -1,3 +1,6 @@
+---
+date: 2022-07-31 20:53:23.509969
+---
 `git remote -v`查看远程信息
 
 # 同一个Origin设置不同的Push和Fetch Url
